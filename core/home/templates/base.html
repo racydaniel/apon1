@@ -1,0 +1,184 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="APON official website" />
+    <meta name="author" content="APON" />
+
+    <title>APON | {% block title %}Home{% endblock %}</title>
+
+    <!-- Add favicon link here -->
+    <!-- <link rel="icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon" /> -->
+
+    <!-- Flowbite CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+    <!-- Extra CSS -->
+    <style>
+      body, html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+      }
+
+      .wrapper {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      main {
+        flex-grow: 1;
+      }
+
+      footer {
+        width: 100%;
+        background-color: #fff;
+      }
+    </style>
+
+    {% block extra_css %}{% endblock %}
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header>
+        <nav class="bg-blue-600 p-4">
+    <div class="container mx-auto flex justify-between items-center">
+        <!-- Logo -->
+        <a href="#" class="flex items-center">
+            <img src="{% static 'images/apon_logo1.png' %}" alt="Logo" class="h-16 mr-2">
+            <span class="text-white text-2xl font-bold">APON</span>
+        </a>
+
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex space-x-8">
+            <a href="{% url 'home:home' %}" class="text-white hover:bg-white hover:text-blue-600 px-3 py-2 rounded transition duration-300">Home</a>
+            <a href="{% url 'home:about_us_detail' %}" class="text-white hover:bg-white hover:text-blue-600 px-3 py-2 rounded transition duration-300">About Us</a>
+            <a href="{% url 'home:team' %}" class="text-white hover:bg-white hover:text-blue-600 px-3 py-2 rounded transition duration-300">Core Team</a>
+            <a href="{% url 'home:services_list' %}" class="text-white hover:bg-white hover:text-blue-600 px-3 py-2 rounded transition duration-300">Services</a>
+            <a href="{% url 'home:treatment' %}" class="text-white hover:bg-white hover:text-blue-600 px-3 py-2 rounded transition duration-300">Treatment</a>
+            <a href="{% url 'home:program' %}" class="text-white hover:bg-white hover:text-blue-600 px-3 py-2 rounded transition duration-300">Program</a>
+            <a href="{% url 'home:gallery' %}" class="text-white hover:bg-white hover:text-blue-600 px-3 py-2 rounded transition duration-300">Gallery</a>
+            <a href="{% url 'home:contact' %}" class="text-white hover:bg-white hover:text-blue-600 px-3 py-2 rounded transition duration-300">Contact</a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button id="menu-btn" class="block md:hidden text-white focus:outline-none">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+            </svg>
+        </button>
+    </div>
+
+    <!-- Mobile Menu (Shutter from the left) -->
+    <div id="mobile-menu" class="fixed inset-y-0 left-0 w-64 bg-blue-700 text-white p-4 transform -translate-x-full transition-transform duration-300 ease-in-out z-50">
+        <div class="flex justify-between items-center mb-4">
+            <a href="#" class="flex items-center">
+                <img src="{% static 'images/apon_logo1.png' %}" alt="Logo" class="h-16 mr-2">
+                <span class="text-2xl font-bold">APON</span>
+            </a>
+            <button id="close-menu-btn" class="focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+        <!-- Mobile Menu Links (same as desktop) -->
+        <a href="{% url 'home:home' %}" class="block py-2">Home</a>
+        <a href="{% url 'home:about_us_detail' %}" class="block py-2">About Us</a>
+        <a href="#" class="block py-2">Core Team</a>
+        <a href="#" class="block py-2">Treatment</a>
+        <a href="#" class="block py-2">Program</a>
+        <a href="#" class="block py-2">Gallery</a>
+        <a href="#" class="block py-2">Contact</a>
+    </div>
+</nav>
+
+
+      </header>
+
+      <main>
+        {% block content %} {% endblock %}
+      </main>
+
+      <!-- Footer -->
+      <footer class="bg-white dark:bg-gray-900">
+        <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+          <div class="md:flex md:justify-between">
+            <div class="mb-6 md:mb-0">
+              <a href="https://flowbite.com/" class="flex items-center">
+                <img src="{% static 'images/apon_logo1.png' %}" class="h-16 me-3" alt="Logo" />
+                <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Ashokti Punorbashon Nibash</span>
+              </a>
+            </div>
+            <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
+              <div>
+                <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Resources</h2>
+                <ul class="text-gray-500 dark:text-gray-400 font-medium">
+                  <li class="mb-4">
+                    <a href="https://flowbite.com/" class="hover:underline">Newsletter</a>
+                  </li>
+                  <li>
+                    <a href="https://tailwindcss.com/" class="hover:underline">Photos</a>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Follow us</h2>
+                <ul class="text-gray-500 dark:text-gray-400 font-medium">
+                  <li class="mb-4">
+                    <a href="https://github.com/themesberg/flowbite" class="hover:underline">Facebook</a>
+                  </li>
+                  <li>
+                    <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">YouTube</a>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Legal</h2>
+                <ul class="text-gray-500 dark:text-gray-400 font-medium">
+                  <li class="mb-4">
+                    <a href="#" class="hover:underline">Privacy Policy</a>
+                  </li>
+                  <li>
+                    <a href="#" class="hover:underline">Terms &amp; Conditions</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+          <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a href="https://flowbite.com/" class="hover:underline">APON</a>. All Rights Reserved.</span>
+        </div>
+      </footer>
+    </div>
+    <script>
+    // Get the elements
+    const menuBtn = document.getElementById('menu-btn');
+    const closeMenuBtn = document.getElementById('close-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    // Open the mobile menu
+    menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.remove('-translate-x-full');
+    });
+
+    // Close the mobile menu
+    closeMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.add('-translate-x-full');
+    });
+</script>
+
+
+    <!-- Flowbite JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+
+    {% block extra_js %}{% endblock %}
+  </body>
+</html>
