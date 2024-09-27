@@ -22,7 +22,7 @@ SECRET_KEY = 'django-insecure--#77_(tkk+$(n93_pe3gb4v*h3*!--+xciwvpw(!kgcot+v4*!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['143.110.251.53']
 
 
 # Application definition
@@ -74,12 +74,24 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'apon',  # The name of your database
+        'USER': 'root',  # MySQL user
+        'PASSWORD': 'Godino$1234',  # MySQL password
+        'HOST': '143.110.251.53',  # IP address of the database server
+        'PORT': '3306',  # Default MySQL port (3306)
     }
 }
+
 
 # DATABASES = {
 #     'default': {
